@@ -1,0 +1,54 @@
+{
+  "$schema": "../config.schema.json",
+  "server": {
+    "address": "127.0.0.1",
+    "port": 0,
+    "background": true,
+    "upload": "./upload",
+    "session": {
+      "key": "KSESSION",
+      "maxAge": 1800001
+    },
+    "limits": {
+      "timeBetweenRequests": 10000,
+      "maximumRequestSize": 52428800,
+      "fieldNameSize": 100,
+      "fieldSize": 1048576,
+      "fileSize": 20971520
+    }
+  },
+  "loggly": {
+    "enabled": true,
+    "subdomain": "test",
+    "token": "test"
+  },
+  "database": {
+    "type": "postgres",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "username": "projects",
+    "password": "projects123",
+    "name": "projects"
+  },
+  "discovery": {
+    "enabled": false
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+  "management": {
+    "address": "127.0.0.1",
+    "port": 0,
+    "username": "admin",
+    "password": "admin123"
+  },
+  "mail": {
+    "address": "127.0.0.1",
+    "port": 654,
+    "username": "test",
+    "password": "test",
+    "secure": false,
+    "from": "admin@example.com"
+  }
+}

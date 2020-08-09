@@ -1,0 +1,6 @@
+[parserOptions]
+ecmaVersion = 2020
+
+[rules]
+no-tabs = 'error'
+indent = 'error'

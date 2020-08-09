@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json.schemastore.org/eslintrc",
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "no-tabs":"error",
+    "indent":"error"
+  }
+}
