@@ -1,0 +1,76 @@
+{
+  "name": "@gloster/client",
+  "version": "0.2.0-SNAPSHOT",
+  "private": true,
+  "description": "The client or frontend of gloster",
+  "author": "carddamom <carddamom@tutanota.com>",
+  "license": "AGPL-3.0-or-later",
+  "main": "dist/script.js",
+  "scripts": {
+    "help": "nps help",
+    "license": "nps license",
+    "clean": "nps clean",
+    "build": "nps build",
+    "dev": "nps dev"
+  },
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=12.14.1"
+  },
+  "engineStrict": true,
+  "devDependencies": {
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^13.13.5",
+    "@types/parcel-bundler": "1.12.1",
+    "@types/sass": "1.16.0",
+    "@types/vue": "^2.0.0",
+    "@vue/component-compiler-utils": "^3.1.2",
+    "eslint": "^7.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "handlebars": "^4.7.6",
+    "json-schema-to-typescript": "^9.1.0",
+    "license-checker": "^25.0.1",
+    "marked": "^1.0.0",
+    "nps": "^5.9.12",
+    "nps-utils": "^1.7.0",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-imagemin": "^4.0.1",
+    "parcel-plugin-markdown": "^0.4.2",
+    "parcel-plugin-sw-precache": "^1.1.2",
+    "pug": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.5",
+    "typedoc": "^0.17.6",
+    "typedoc-plugin-markdown": "^2.2.17",
+    "typescript": "^3.8.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "class-validator": "^0.12.2",
+    "es6-promise": "^4.2.8",
+    "lodash": "^4.17.15",
+    "moment": "^2.25.3",
+    "reflect-metadata": "^0.1.13",
+    "vue": "^2.6.11",
+    "vue-kanban": "^1.6.2",
+    "vue-particles": "^1.0.9",
+    "vue-router": "^3.1.6",
+    "vuex": "^3.4.0",
+    "vuex-class-modules": "^1.1.2",
+    "vuex-persistedstate": "^3.0.1"
+  },
+  "marked": {
+    "gfm": true,
+    "breaks": true,
+    "headerIds": true,
+    "mangle": true,
+    "smartLists": true,
+    "smartypants": true,
+    "xhtml": true
+  }
+}

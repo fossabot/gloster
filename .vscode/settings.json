@@ -1,0 +1,14 @@
+{
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingOvertype": "always",
+  "editor.autoClosingQuotes": "always",
+  "editor.detectIndentation": false,
+  "editor.parameterHints.cycle": true,
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all",
+  "editor.stablePeek": true,
+  "editor.tabSize": 2,
+  "eslint.nodePath": ".vscode/pnpify",
+  "typescript.tsdk": ".vscode/pnpify/typescript/lib",
+  "eslint.enable": true
+}
