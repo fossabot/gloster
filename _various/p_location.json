@@ -1,0 +1,523 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "Location",
+  "items": [
+    {
+      "name": "Browse all locations",
+      "method": "post",
+      "url": "/locations",
+      "description": "Returns a list of all available locations, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last location id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": [
+              "id",
+              "common_name",
+              "description",
+              "address1",
+              "address2",
+              "city",
+              "country",
+              "zipcode",
+              "location",
+              "created_at",
+              "created_by",
+              "modified_at",
+              "modified_by"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The location id",
+            "optional": true
+          },
+          {
+            "name": "common_name",
+            "type": "string",
+            "description": "The location common name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The location description",
+            "optional": true
+          },
+          {
+            "name":"address1",
+            "type": "string",
+            "description": "The first line of the address",
+            "optional": true
+          },
+          {
+            "name":"address2",
+            "type": "string",
+            "description": "The second line of the address",
+            "optional": true
+          },
+          {
+            "name":"city",
+            "type": "string",
+            "description": "The location city",
+            "optional": true
+          },
+          {
+            "name":"country",
+            "type": "string",
+            "description": "The location country",
+            "optional": true
+          },
+          {
+            "name":"zipcode",
+            "type": "string",
+            "description": "The location zipcode",
+            "optional": true
+          },
+          {
+            "name":"location",
+            "type": "point",
+            "description": "A GeoJson point of the location",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the location was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the location",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the location was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the location",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse location",
+      "method": "post",
+      "url": "/location/{id}",
+      "description": "Returns information about a single location",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The location id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": [
+              "id",
+              "common_name",
+              "description",
+              "address1",
+              "address2",
+              "city",
+              "country",
+              "zipcode",
+              "location",
+              "created_at",
+              "created_by",
+              "modified_at",
+              "modified_by"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The location id",
+            "optional": true
+          },
+          {
+            "name": "common_name",
+            "type": "string",
+            "description": "The location common name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The location description",
+            "optional": true
+          },
+          {
+            "name":"address1",
+            "type": "string",
+            "description": "The first line of the address",
+            "optional": true
+          },
+          {
+            "name":"address2",
+            "type": "string",
+            "description": "The second line of the address",
+            "optional": true
+          },
+          {
+            "name":"city",
+            "type": "string",
+            "description": "The location city",
+            "optional": true
+          },
+          {
+            "name":"country",
+            "type": "string",
+            "description": "The location country",
+            "optional": true
+          },
+          {
+            "name":"zipcode",
+            "type": "string",
+            "description": "The location zipcode",
+            "optional": true
+          },
+          {
+            "name":"location",
+            "type": "point",
+            "description": "A GeoJson point of the location",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the location was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the location",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the location was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the location",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a location",
+      "method": "post",
+      "url": "/location",
+      "description": "Creates a location given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "common_name",
+            "type": "string",
+            "description": "The location common name"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The location description",
+            "optional": true
+          },
+          {
+            "name":"address1",
+            "type": "string",
+            "description": "The first line of the address",
+            "optional": true
+          },
+          {
+            "name":"address2",
+            "type": "string",
+            "description": "The second line of the address",
+            "optional": true
+          },
+          {
+            "name":"city",
+            "type": "string",
+            "description": "The location city",
+            "optional": true
+          },
+          {
+            "name":"country",
+            "type": "string",
+            "description": "The location country",
+            "optional": true
+          },
+          {
+            "name":"zipcode",
+            "type": "string",
+            "description": "The location zipcode",
+            "optional": true
+          },
+          {
+            "name":"location",
+            "type": "point",
+            "description": "A GeoJson point of the location",
+            "optional": true
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new location id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a location",
+      "method": "put",
+      "url": "/location/{id}",
+      "description": "Updates a location given its updated information",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "common_name",
+            "type": "string",
+            "description": "The location common name"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The location description",
+            "optional": true
+          },
+          {
+            "name":"address1",
+            "type": "string",
+            "description": "The first line of the address",
+            "optional": true
+          },
+          {
+            "name":"address2",
+            "type": "string",
+            "description": "The second line of the address",
+            "optional": true
+          },
+          {
+            "name":"city",
+            "type": "string",
+            "description": "The location city",
+            "optional": true
+          },
+          {
+            "name":"country",
+            "type": "string",
+            "description": "The location country",
+            "optional": true
+          },
+          {
+            "name":"zipcode",
+            "type": "string",
+            "description": "The location zipcode",
+            "optional": true
+          },
+          {
+            "name":"location",
+            "type": "point",
+            "description": "A GeoJson point of the location",
+            "optional": true
+          }
+        ]
+      },
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The location id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a location",
+      "method": "delete",
+      "url": "/location/{id}",
+      "description": "Removes a location given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the location to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

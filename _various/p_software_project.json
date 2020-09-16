@@ -1,0 +1,1447 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "Software Project",
+  "items": [
+    {
+      "name": "Browse all software projects",
+      "method": "post",
+      "url": "/softwareProjects",
+      "description": "Returns a list of all available software projects, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last software project id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","needs_refactoring","taxonomy","created_date","due_date","parent","version","homepage","repository_url","repository_webview","download","bug_tracker","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The software project id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The software project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The software project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy",
+            "optional": true
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created",
+            "optional": true
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"version",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"homepage",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_url",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_webview",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"download",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"bug_tracker",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the software project was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the software project",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the software project was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the software project",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse software project",
+      "method": "post",
+      "url": "/softwareProject/{id}",
+      "description": "Returns information about a single software project",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The software project id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","needs_refactoring","taxonomy","created_date","due_date","parent","version","homepage","repository_url","repository_webview","download","bug_tracker","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The software project id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The software project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The software project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy",
+            "optional": true
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created",
+            "optional": true
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"version",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"homepage",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_url",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_webview",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"download",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"bug_tracker",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the software project was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the software project",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the software project was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the software project",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse software project status",
+      "method": "post",
+      "url": "/softwareProject/{id}/status",
+      "description": "Returns information about the software project status",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The software project id whose status is to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","order","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The project status id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The project status name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The project status description",
+            "optional": true
+          },
+          {
+            "name": "order",
+            "type": "integer",
+            "description": "The project status order"
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the project status was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the project status",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the project status was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the project status",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse software project type",
+      "method": "post",
+      "url": "/softwareProject/{id}/type",
+      "description": "Returns information about the software project type",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The software project id whose type it to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The type id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The type name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The type description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the type was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the type",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the type was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the type",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse software project area",
+      "method": "post",
+      "url": "/softwareProject/{id}/area",
+      "description": "Returns information about a software project area",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The software project id whose area is to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The area id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The area name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The area description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the area was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the area",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the area was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the area",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all software project platforms",
+      "method": "post",
+      "url": "/softwareProject/{id}/platforms",
+      "description": "Returns information about all the software project platforms, as an array",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The platform id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The platform id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The platform name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The platform description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the platform was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the platform",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the platform was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the platform",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse the software project category",
+      "method": "post",
+      "url": "/softwareProject/{id}/category",
+      "description": "Returns information about the software project category",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The category id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The category id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The category name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The category description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the category was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the category",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the category was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the category",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse the software project repository type",
+      "method": "post",
+      "url": "/softwareProject/{id}/repositoryType",
+      "description": "Returns information about the software project repository type",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The repository type id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The repository type id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The repository type name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The repository type description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the repository type was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the repository type",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the repository type was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the repository type",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all the software project languages",
+      "method": "post",
+      "url": "/softwareProject/{id}/languages",
+      "description": "Returns information about all the software project language, as an array",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last language id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The language id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The language id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The language name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The language description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the language was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the language",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the language was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the language",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all the software project licenses",
+      "method": "post",
+      "url": "/softwareProject/{id}/licenses",
+      "description": "Returns information about all the software project licenses, as an array",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last language id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The license id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","spdx","name","description","url","osi_approved","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The license id",
+            "optional": true
+          },
+          {
+            "name": "spdx",
+            "type": "string",
+            "description": "The license spdx",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The license name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The license description",
+            "optional": true
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "The license url",
+            "optional": true
+          },
+          {
+            "name": "osi_approved",
+            "type": "string",
+            "description": "If the license is approved by the OSI",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the license was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the license",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the license was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the license",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a software project",
+      "method": "post",
+      "url": "/softwareProject",
+      "description": "Creates a software project given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The software project name"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The software project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy"
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created"
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent"
+          },
+          {
+            "name":"version",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"homepage",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_url",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_webview",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"download",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"bug_tracker",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new software project id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a software project",
+      "method": "put",
+      "url": "/softwareProject/{id}",
+      "description": "Updates a software project given its updated information",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The software project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The software project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy"
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created"
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent"
+          },
+          {
+            "name":"version",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"homepage",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_url",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_webview",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"download",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"bug_tracker",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          }
+        ]
+      },
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The software project id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a software project",
+      "method": "delete",
+      "url": "/softwareProject/{id}",
+      "description": "Removes a software project given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the software project to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "Language",
+  "items": [
+    {
+      "name": "Browse all languages",
+      "method": "post",
+      "url": "/languages",
+      "description": "Returns a list of all available languages, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last language id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The language id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The language name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The language description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the language was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the language",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the language was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the language",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse language",
+      "method": "post",
+      "url": "/language/{id}",
+      "description": "Returns information about a single language",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The language id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The language id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The language name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The language description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the language was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the language",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the language was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the language",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a language",
+      "method": "post",
+      "url": "/language",
+      "description": "Creates a language given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The language name"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The language description",
+            "optional": true
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new language id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a language",
+      "method": "put",
+      "url": "/language/{id}",
+      "description": "Updates a language given its updated information",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The language name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The language description",
+            "optional": true
+          }
+        ]
+      },
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The language id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a language",
+      "method": "delete",
+      "url": "/language/{id}",
+      "description": "Removes a language given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the language to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

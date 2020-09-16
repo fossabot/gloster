@@ -1,0 +1,494 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "Person",
+  "items": [
+    {
+      "name": "Browse all persons",
+      "method": "post",
+      "url": "/persons",
+      "description": "Returns a list of all available persons, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last person id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","email","first_name","middle_name","last_name","telephone","mobile","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The person id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The person name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The person description",
+            "optional": true
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The person email",
+            "optional": true
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The person first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The person middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The person last name",
+            "optional": true
+          },
+          {
+            "name":"telephone",
+            "type": "string",
+            "description": "The person telephone",
+            "optional": true
+          },
+          {
+            "name":"mobile",
+            "type": "string",
+            "description": "The person mobile phone",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the person was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the person",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the person was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the person",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse person",
+      "method": "post",
+      "url": "/person/{id}",
+      "description": "Returns information about a single person",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The person id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","email","first_name","middle_name","last_name","telephone","mobile","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The person id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The person name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The person description",
+            "optional": true
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The person email",
+            "optional": true
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The person first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The person middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The person last name",
+            "optional": true
+          },
+          {
+            "name":"telephone",
+            "type": "string",
+            "description": "The person telephone",
+            "optional": true
+          },
+          {
+            "name":"mobile",
+            "type": "string",
+            "description": "The person mobile phone",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the person was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the person",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the person was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the person",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a person",
+      "method": "post",
+      "url": "/person",
+      "description": "Creates a person given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The person name"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The person description",
+            "optional": true
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The person email"
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The person first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The person middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The person last name",
+            "optional": true
+          },
+          {
+            "name":"telephone",
+            "type": "string",
+            "description": "The person telephone",
+            "optional": true
+          },
+          {
+            "name":"mobile",
+            "type": "string",
+            "description": "The person mobile phone",
+            "optional": true
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new person id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a person",
+      "method": "put",
+      "url": "/person/{id}",
+      "description": "Updates a person given its updated information",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The person name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The person description",
+            "optional": true
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The person email"
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The person first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The person middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The person last name",
+            "optional": true
+          },
+          {
+            "name":"telephone",
+            "type": "string",
+            "description": "The person telephone",
+            "optional": true
+          },
+          {
+            "name":"mobile",
+            "type": "string",
+            "description": "The person mobile phone",
+            "optional": true
+          }
+        ]
+      },
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The person id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a person",
+      "method": "delete",
+      "url": "/person/{id}",
+      "description": "Removes a person given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the person to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

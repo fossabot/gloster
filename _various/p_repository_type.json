@@ -1,0 +1,352 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "Repository Type",
+  "items": [
+    {
+      "name": "Browse all repository types",
+      "method": "post",
+      "url": "/repositoryTypes",
+      "description": "Returns a list of all available repository types, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last repository type id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The repository type id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The repository type name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The repository type description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the repository type was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the repository type",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the repository type was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the repository type",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse repository type",
+      "method": "post",
+      "url": "/repositoryType/{id}",
+      "description": "Returns information about a single repository type",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The repository type id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The repository type id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The repository type name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The repository type description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the repository type was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the repository type",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the repository type was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the repository type",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a repository type",
+      "method": "post",
+      "url": "/repositoryType",
+      "description": "Creates a repository type given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The repository type name"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The repository type description",
+            "optional": true
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new repository type id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a repository type",
+      "method": "put",
+      "url": "/repositoryType/{id}",
+      "description": "Updates a repository type given its updated information",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The repository type name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The repository type description",
+            "optional": true
+          }
+        ]
+      },
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The repository type id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a repository type",
+      "method": "delete",
+      "url": "/repositoryType/{id}",
+      "description": "Removes a repository type given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the repository type to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "Login",
+  "items": [
+    {
+      "name": "User login",
+      "method": "post",
+      "url": "/login",
+      "description": "This is the main entry point of the login, and allows a user to become authenticated",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "username",
+            "type": "string",
+            "description": "The username of the user that is trying to authenticate"
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "description": "The password of the user that is trying to authenticate"
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "username",
+            "type": "string",
+            "description": "The username of the authenticated user"
+          },
+          {
+            "name": "token",
+            "description": "The jwt token to use in subsquent requests",
+            "type": "string"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 1,
+          "name": "Authentication invalid",
+          "code": 301,
+          "description": "The authentication has failed"
+        }
+      ]
+    },
+    {
+      "name": "User logout",
+      "method": "post",
+      "url": "/logout",
+      "description": "This performs a logout of the current authenticated user",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id":3,
+          "name":"Invalid token header",
+          "code": 422,
+          "description": "The token offered is invalid"
+        }
+      ]
+    },
+    {
+      "name": "Password reset",
+      "method": "put",
+      "url": "/reset",
+      "description": "This performs the first step for a password reset",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "Email",
+            "type": "string",
+            "description": "The email of the user to reset the password"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 4,
+          "name": "Email is invalid",
+          "code": 422,
+          "description": "The given email is not recognized"
+        },
+        {
+          "id": 5,
+          "name": "Error sending email",
+          "code": 503,
+          "description": "The server was unable to send the reset email"
+        }
+      ]
+    },
+    {
+      "name": "Password change (reset step 2)",
+      "method": "post",
+      "url": "/reset",
+      "description": "This is the second part of a password reset",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "string",
+            "description": "The id contained in the email sent to the user"
+          },
+          {
+            "name": "oldPassword",
+            "type": "string",
+            "description": "The old password",
+            "optional": true
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "description": "The new password"
+          },
+          {
+            "name": "password2",
+            "type": "string",
+            "description": "The new password (repeated)"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 6,
+          "name": "Request has expired",
+          "code": 400,
+          "description": "The time for the password reset has expired"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "User registration",
+      "method": "put",
+      "url": "/register",
+      "description": "Registers a new user",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "username",
+            "description": "The username of the new user",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "description": "The email of the new user",
+            "type": "string"
+          },
+          {
+            "name": "firstName",
+            "description": "The new user first name",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name":"middleName",
+            "description": "The new user middle name(s)",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "lastName",
+            "description": "The new user last name",
+            "type": "string",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 5,
+          "name": "Error sending email",
+          "code": 503,
+          "description": "The server was unable to send the reset email"
+        }
+      ]
+    }
+  ]
+}

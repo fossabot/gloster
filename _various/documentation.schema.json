@@ -1,0 +1,247 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "This is a schema that helps create the documentation for the api",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type":"string",
+      "description": "The documentation schema"
+    },
+    "name": {
+      "description": "The name of the api",
+      "type": "string"
+    },
+    "items": {
+      "description": "The items of the api",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "description": "An item of an api",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The api name"
+          },
+          "method": {
+            "type": "string",
+            "enum": ["get","head","post","put","delete","patch"],
+            "description": "The api http method"
+          },
+          "url": {
+            "type": "string",
+            "description": "The api path"
+          },
+          "description": {
+            "type": "string",
+            "description": "The api description"
+          },
+          "requestBody": {
+            "description": "The api request body",
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "accepted": {
+                "type": "array",
+                "description": "The accepted media types of the request body",
+                "additionalItems": false,
+                "items": {
+                  "type": "string",
+                  "description": "A media type"
+                }
+              },
+              "items": {
+                "type": "array",
+                "description": "The request body structure items",
+                "additionalItems": false,
+                "items": {
+                  "type": "object",
+                  "description": "An request body structure item",
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the item"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The item type",
+                      "enum": [ "string", "integer", "number", "array", "object", "boolean","date","datetime","time","point" ]
+                    },
+                    "arrayType": {
+                      "type": "string",
+                      "description": "The array item type",
+                      "enum": [ "string", "integer", "number", "array", "object", "boolean","date","datetime","time","point" ]
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The item description"
+                    },
+                    "enum": {
+                      "type":"array",
+                      "description": "The enumeration of possible values",
+                      "additionalItems": false,
+                      "items": {
+                        "type":"string",
+                        "description": "A possible value"
+                      }
+                    },
+                    "optional": {
+                      "type":"boolean",
+                      "description": "If this item is optional or not"
+                    }
+                  },
+                  "required": ["name","description"]
+                }
+              }
+            }
+          },
+          "request": {
+            "type": "array",
+            "description": "The request parameter structure items",
+            "additionalItems": false,
+            "items": {
+              "type": "object",
+              "description": "An request body structure item",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the item"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "The item type",
+                  "enum": [ "string", "integer", "number", "array", "object", "boolean","date","datetime","time","point" ]
+                },
+                "arrayType": {
+                  "type": "string",
+                  "description": "The array item type",
+                  "enum": [ "string", "integer", "number", "array", "object", "boolean","date","datetime","time","point" ]
+                },
+                "description": {
+                  "type": "string",
+                  "description": "The item description"
+                },
+                "enum": {
+                  "type":"array",
+                  "description": "The enumeration of possible values",
+                  "additionalItems": false,
+                  "items": {
+                    "type":"string",
+                    "description": "A possible value"
+                  }
+                },
+                "location": {
+                  "type": "string",
+                  "description": "The item location",
+                  "enum": ["header","path","query"]
+                },
+                "optional": {
+                  "type":"boolean",
+                  "description": "If this item is optional or not"
+                }
+              },
+              "required": ["name","description","location"]
+            }
+          },
+          "response": {
+            "description": "The api response body",
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "accepted": {
+                "type": "array",
+                "description": "The media types of the response",
+                "additionalItems": false,
+                "items": {
+                  "type": "string",
+                  "description": "A media type"
+                }
+              },
+              "items": {
+                "type": "array",
+                "description": "The response body structure items",
+                "additionalItems": false,
+                "items": {
+                  "type": "object",
+                  "description": "An response body structure item",
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the item"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The item type",
+                      "enum": [ "string", "integer", "number", "array", "object", "boolean","date","datetime","time","point" ]
+                    },
+                    "arrayType": {
+                      "type": "string",
+                      "description": "The array item type",
+                      "enum": [ "string", "integer", "number", "array", "object", "boolean","date","datetime","time","point" ]
+                    },
+                    "enum": {
+                      "type":"array",
+                      "description": "The enumeration of possible values",
+                      "additionalItems": false,
+                      "items": {
+                        "type":"string",
+                        "description": "A possible value"
+                      }
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The item description"
+                    },
+                    "optional": {
+                      "type":"boolean",
+                      "description": "If this item is optional or not"
+                    }
+                  },
+                  "required": ["name","description"]
+                }
+              }
+            }
+          },
+          "errors": {
+            "type":"array",
+            "description": "This describes the possible errors for an method",
+            "additionalItems": false,
+            "items": {
+              "type":"object",
+              "description": "An possible error",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type":"string",
+                  "description": "An human readable name for the error"
+                },
+                "code": {
+                  "type":"integer",
+                  "description": "The status code associated with the error",
+                  "minimum": 100,
+                  "maximum": 599
+                },
+                "description": {
+                  "type":"string",
+                  "description": "An short description of the error"
+                },
+                "id": {
+                  "type":"integer",
+                  "description": "The id of the error"
+                }
+              },
+              "required": ["id","name","code","description"]
+            }
+          }
+        },
+        "required": ["name","method","url","description"]
+      }
+    }
+  },
+  "required": ["name"]
+}

@@ -1,0 +1,411 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "License",
+  "items": [
+    {
+      "name": "Browse all licenses",
+      "method": "post",
+      "url": "/licenses",
+      "description": "Returns a list of all available licenses, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last license id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","spdx","name","description","url","osi_approved","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The license id",
+            "optional": true
+          },
+          {
+            "name": "spdx",
+            "type": "string",
+            "description": "The license spdx",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The license name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The license description",
+            "optional": true
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "The license url",
+            "optional": true
+          },
+          {
+            "name": "osi_approved",
+            "type": "string",
+            "description": "If the license is approved by the OSI",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the license was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the license",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the license was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the license",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse license",
+      "method": "post",
+      "url": "/license/{id}",
+      "description": "Returns information about a single license",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","spdx","name","description","url","osi_approved","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The license id",
+            "optional": true
+          },
+          {
+            "name": "spdx",
+            "type": "string",
+            "description": "The license spdx",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The license name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The license description",
+            "optional": true
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "description": "The license url",
+            "optional": true
+          },
+          {
+            "name": "osi_approved",
+            "type": "string",
+            "description": "If the license is approved by the OSI",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the license was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the license",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the license was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the license",
+            "optional": true
+          }
+        ]
+      },
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The license id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a license",
+      "method": "post",
+      "url": "/license",
+      "description": "Creates a license given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The license name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The license description",
+            "optional": true
+          },
+          {
+            "name": "spdx",
+            "type": "string",
+            "description": "The license spdx"
+          },
+          {
+            "description": "The license url",
+            "type": "string",
+            "name": "url",
+            "optional": true
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new license id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a license",
+      "method": "put",
+      "url": "/license/{id}",
+      "description": "Updates a license given its updated information",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The license id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The license name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The license description",
+            "optional": true
+          },
+          {
+            "name": "spdx",
+            "type": "string",
+            "description": "The license spdx"
+          },
+          {
+            "description": "The license url",
+            "type": "string",
+            "name": "url",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a license",
+      "method": "delete",
+      "url": "/license/{id}",
+      "description": "Removes a license given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the license to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

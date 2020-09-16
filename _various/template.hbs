@@ -1,0 +1,60 @@
+# {{name}} #
+
+For the {{name}} api we have the following endpoints.
+{{#items}}
+
+## {{name}} ##
+
+{{description}}.
+
+~~~http
+{{method}} {{{url}}}
+~~~
+
+{{#if request}}
+### Request ###
+
+These are the available request parameters:
+
+{{#request}}
+- **{{name}}** => {{description}}. The type of this parameter is _{{type}}{{#if arrayType}}({{arrayType}}){{/if}}_{{#if optional}}, it is optional{{/if}} and present in the **{{location}}**{{#if enum}} , it can contain the following values:
+  {{#enum}}- {{this}};
+  {{/enum}}{{/if}}
+{{/request}}
+
+{{/if}}
+{{#if requestBody}}
+### Request Body ###
+
+The request body has the following structure:
+
+{{#requestBody.items}}
+- **{{name}}** => {{description}}. The type of this item is _{{type}}{{#if arrayType}}({{arrayType}}){{/if}}_{{#if optional}} and it is optional{{/if}}{{#if enum}} , it can contain the following values:
+  {{#enum}}- {{this}};
+  {{/enum}}{{/if}}
+{{/requestBody.items}}
+
+{{/if}}
+{{#if response}}
+### Response ###
+
+The response has the following structure:
+
+{{#response.items}}
+- **{{name}}** => {{description}}. The type of this item is _{{type}}{{#if arrayType}}({{arrayType}}){{/if}}_{{#if optional}} and it is optional{{/if}}{{#if enum}} , it can contain the following values:
+  {{#enum}}- {{this}};
+  {{/enum}}{{/if}}
+{{/response.items}}
+
+{{/if}}
+{{#if errors}}
+### Errors ###
+
+This is a list of available errors:
+
+{{#errors}}
+- **{{name}}** (id: _{{id}}_) => {{description}}. Status Code: **{{code}}**
+{{/errors}}
+{{/if}}
+
+{{/items}}

@@ -1,0 +1,1178 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "Material Project",
+  "items": [
+    {
+      "name": "Browse all material projects",
+      "method": "post",
+      "url": "/materialProjects",
+      "description": "Returns a list of all available material projects, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last material project id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","needs_refactoring","taxonomy","created_date","due_date","parent","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The material project id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The material project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The material project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy",
+            "optional": true
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created",
+            "optional": true
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the material project was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the material project",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the material project was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the material project",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse material project",
+      "method": "post",
+      "url": "/materialProject/{id}",
+      "description": "Returns information about a single material project",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The material project id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","needs_refactoring","taxonomy","created_date","due_date","parent","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The material project id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The material project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The material project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy",
+            "optional": true
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created",
+            "optional": true
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the material project was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the material project",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the material project was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the material project",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse material project status",
+      "method": "post",
+      "url": "/materialProject/{id}/status",
+      "description": "Returns information about the material project status",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The material project id whose status is to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","order","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The project status id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The project status name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The project status description",
+            "optional": true
+          },
+          {
+            "name": "order",
+            "type": "integer",
+            "description": "The project status order"
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the project status was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the project status",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the project status was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the project status",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse material project type",
+      "method": "post",
+      "url": "/materialProject/{id}/type",
+      "description": "Returns information about the material project type",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The material project id whose type it to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The type id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The type name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The type description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the type was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the type",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the type was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the type",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse material project area",
+      "method": "post",
+      "url": "/materialProject/{id}/area",
+      "description": "Returns information about a material project area",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The material project id whose area is to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The area id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The area name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The area description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the area was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the area",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the area was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the area",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all material project platforms",
+      "method": "post",
+      "url": "/materialProject/{id}/platforms",
+      "description": "Returns information about all the material project platforms, as an array",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last platform id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The platform id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The platform id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The platform name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The platform description",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the platform was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the platform",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the platform was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the platform",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all material project persons",
+      "method": "post",
+      "url": "/materialProject/{id}/persons",
+      "description": "Returns information about all material project persons, as an array",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last person id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The person id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","email","first_name","middle_name","last_name","telephone","mobile","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The person id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The person name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The person description",
+            "optional": true
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The person email",
+            "optional": true
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The person first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The person middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The person last name",
+            "optional": true
+          },
+          {
+            "name":"telephone",
+            "type": "string",
+            "description": "The person telephone",
+            "optional": true
+          },
+          {
+            "name":"mobile",
+            "type": "string",
+            "description": "The person mobile phone",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the person was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the person",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the person was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the person",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all material project locations",
+      "method": "post",
+      "url": "/materialProject/{id}/locations",
+      "description": "Returns information about all material project locations, as an array",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last location id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The location id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": [
+              "id",
+              "common_name",
+              "description",
+              "address1",
+              "address2",
+              "city",
+              "country",
+              "zipcode",
+              "location",
+              "created_at",
+              "created_by",
+              "modified_at",
+              "modified_by"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The location id",
+            "optional": true
+          },
+          {
+            "name": "common_name",
+            "type": "string",
+            "description": "The location common name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The location description",
+            "optional": true
+          },
+          {
+            "name":"address1",
+            "type": "string",
+            "description": "The first line of the address",
+            "optional": true
+          },
+          {
+            "name":"address2",
+            "type": "string",
+            "description": "The second line of the address",
+            "optional": true
+          },
+          {
+            "name":"city",
+            "type": "string",
+            "description": "The location city",
+            "optional": true
+          },
+          {
+            "name":"country",
+            "type": "string",
+            "description": "The location country",
+            "optional": true
+          },
+          {
+            "name":"zipcode",
+            "type": "string",
+            "description": "The location zipcode",
+            "optional": true
+          },
+          {
+            "name":"location",
+            "type": "point",
+            "description": "A GeoJson point of the location",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the location was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the location",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the location was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the location",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a material project",
+      "method": "post",
+      "url": "/materialProject",
+      "description": "Creates a material project given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The material project name"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The material project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy"
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created"
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent"
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new material project id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a material project",
+      "method": "put",
+      "url": "/materialProject/{id}",
+      "description": "Updates a material project given its updated information",
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The material project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The material project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy"
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created"
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent"
+          }
+        ]
+      },
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The material project id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a material project",
+      "method": "delete",
+      "url": "/materialProject/{id}",
+      "description": "Removes a material project given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the material project to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

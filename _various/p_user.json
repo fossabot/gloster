@@ -1,0 +1,754 @@
+{
+  "$schema": "./documentation.schema.json",
+  "name": "User",
+  "items": [
+    {
+      "name": "Browse all users",
+      "method": "post",
+      "url": "/users",
+      "description": "Returns a list of all available users, as a array of responses",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last user id sent in the list",
+          "location": "query"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","email","first_name","middle_name","last_name","active","retries","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The user id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The user name",
+            "optional": true
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The user email",
+            "optional": true
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The user first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The user middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The user last name",
+            "optional": true
+          },
+          {
+            "name":"active",
+            "type": "boolean",
+            "description": "If the user is active",
+            "optional": true
+          },
+          {
+            "name":"retries",
+            "type": "integer",
+            "description": "The number of retries available for the user",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the user was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the user",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the user was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the user",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        }
+      ]
+    },
+    {
+      "name": "Browse user",
+      "method": "get",
+      "url": "/user/{id}",
+      "description": "Returns information about a single user",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The user id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","email","first_name","middle_name","last_name","active","retries","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The user id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The user name",
+            "optional": true
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The user email",
+            "optional": true
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The user first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The user middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The user last name",
+            "optional": true
+          },
+          {
+            "name":"active",
+            "type": "boolean",
+            "description": "If the user is active",
+            "optional": true
+          },
+          {
+            "name":"retries",
+            "type": "integer",
+            "description": "The number of retries available for the user",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the user was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the user",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the user was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the user",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all user material projects",
+      "method": "post",
+      "url": "/user/{id}/materialProjects",
+      "description": "Returns information about all user material projects, as an array",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last material project id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The material project id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","needs_refactoring","taxonomy","created_date","due_date","parent","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The material project id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The material project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The material project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy",
+            "optional": true
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created",
+            "optional": true
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the material project was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the material project",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the material project was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the material project",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Browse all user software projects",
+      "method": "post",
+      "url": "/user/{id}/softwareProjects",
+      "description": "Returns information about all user software projects, as an array",
+      "request": [
+        {
+          "name": "lastId",
+          "type": "integer",
+          "description": "The last software project id sent in the list",
+          "location": "query",
+          "optional": true
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The software project id to be queried",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "fields",
+            "type": "array",
+            "arrayType": "string",
+            "description": "A list of fields returned in the response",
+            "optional": true,
+            "enum": ["id","name","description","needs_refactoring","taxonomy","created_date","due_date","parent","version","homepage","repository_url","repository_webview","download","bug_tracker","created_at","created_by","modified_at","modified_by"]
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The software project id",
+            "optional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The software project name",
+            "optional": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "description": "The software project description",
+            "optional": true
+          },
+          {
+            "name":"needs_refactoring",
+            "type": "boolean",
+            "description": "If the project needs refactoring",
+            "optional": true
+          },
+          {
+            "name":"taxonomy",
+            "type": "string",
+            "description": "The project taxonomy",
+            "optional": true
+          },
+          {
+            "name":"created_date",
+            "type": "date",
+            "description": "The date the project was created",
+            "optional": true
+          },
+          {
+            "name":"due_date",
+            "type": "date",
+            "description": "The date the project will end",
+            "optional": true
+          },
+          {
+            "name":"parent",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"version",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"homepage",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_url",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"repository_webview",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"download",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name":"bug_tracker",
+            "type": "string",
+            "description": "The project parent",
+            "optional": true
+          },
+          {
+            "name": "created_at",
+            "type": "date",
+            "description": "The date the software project was created",
+            "optional": true
+          },
+          {
+            "name": "created_by",
+            "type": "string",
+            "description": "The username who created the software project",
+            "optional": true
+          },
+          {
+            "name": "modified_at",
+            "type": "date",
+            "description": "The date the software project was modified",
+            "optional": true
+          },
+          {
+            "name": "modified_by",
+            "type": "string",
+            "description": "The username who modified the software project",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    },
+    {
+      "name": "Create a user",
+      "method": "post",
+      "url": "/user",
+      "description": "Creates a user given its information.",
+      "request": [
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The user name"
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The user email"
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The user first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The user middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The user last name",
+            "optional": true
+          }
+        ]
+      },
+      "response": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "id",
+            "type": "integer",
+            "description": "The new user id"
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Update a user",
+      "method": "put",
+      "url": "/user/{id}",
+      "description": "Updates a user given its updated information",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The user id to be updated",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "requestBody": {
+        "accepted": ["\"application/json\""],
+        "items": [
+          {
+            "name": "name",
+            "type": "string",
+            "description": "The user name"
+          },
+          {
+            "name":"email",
+            "type": "string",
+            "description": "The user email"
+          },
+          {
+            "name":"first_name",
+            "type": "string",
+            "description": "The user first name",
+            "optional": true
+          },
+          {
+            "name":"middle_name",
+            "type": "string",
+            "description": "The user middle name(s)",
+            "optional": true
+          },
+          {
+            "name":"last_name",
+            "type": "string",
+            "description": "The user last name",
+            "optional": true
+          }
+        ]
+      },
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 7,
+          "name": "Request is invalid",
+          "code": 400,
+          "description": "There is some error with the request message"
+        },
+        {
+          "id": 9,
+          "name": "Entity already exists",
+          "code": 409,
+          "description": "The given name already exists in an entity"
+        }
+      ]
+    },
+    {
+      "name": "Remove a user",
+      "method": "delete",
+      "url": "/user/{id}",
+      "description": "Removes a user given its id",
+      "request": [
+        {
+          "name": "id",
+          "type": "integer",
+          "description": "The id of the user to be deleted",
+          "location": "path"
+        },
+        {
+          "name": "Authorization",
+          "type": "string",
+          "description": "The authentication token",
+          "location": "header"
+        }
+      ],
+      "errors": [
+        {
+          "id": 2,
+          "name": "Unauthenticated request",
+          "code": 401,
+          "description": "The client has not authenticated himself"
+        },
+        {
+          "id": 8,
+          "name": "Entity not found",
+          "code": 404,
+          "description": "The given id does not correspond to an entity"
+        }
+      ]
+    }
+  ]
+}

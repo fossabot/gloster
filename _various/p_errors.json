@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Authentication invalid",
+    "code": 301,
+    "description": "The authentication has failed"
+  },
+  {
+    "id": 2,
+    "name": "Unauthenticated request",
+    "code": 401,
+    "description": "The client has not authenticated himself"
+  },
+  {
+    "id":3,
+    "name":"Invalid token header",
+    "code": 422,
+    "description": "The token offered is invalid"
+  },
+  {
+    "id": 4,
+    "name": "Email is invalid",
+    "code": 422,
+    "description": "The given email is not recognized"
+  },
+  {
+    "id": 5,
+    "name": "Error sending email",
+    "code": 503,
+    "description": "The server was unable to send the reset email"
+  },
+  {
+    "id": 6,
+    "name": "Request has expired",
+    "code": 400,
+    "description": "The time for the password reset has expired"
+  },
+  {
+    "id": 7,
+    "name": "Request is invalid",
+    "code": 400,
+    "description": "There is some error with the request message"
+  },
+  {
+    "id": 8,
+    "name": "Entity not found",
+    "code": 404,
+    "description": "The given id does not correspond to an entity"
+  },
+  {
+    "id": 9,
+    "name": "Entity already exists",
+    "code": 409,
+    "description": "The given name already exists in an entity"
+  }
+]
