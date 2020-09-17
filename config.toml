@@ -12,8 +12,10 @@ enableGitInfo = true
 
 contentDir = "content/en"
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
+defaultContentLanguageInSubdir = true
 enableMissingTranslationPlaceholders = false
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 pygmentsCodeFences = true
 pygmentsUseClasses = false
@@ -39,7 +41,6 @@ github_project_repo = "https://github.com/chordflower/gloster"
 
 algolia_docsearch = false
 offlineSearch = true
-sharingicons = false
 
 [params.ui]
 sidebar_menu_compact = true

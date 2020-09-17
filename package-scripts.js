@@ -2,6 +2,10 @@ const npsUtils = require('nps-utils')
 
 module.exports = {
   scripts: {
+    favicon: {
+      script: 'real-favicon generate faviconDescription.json faviconData.json static',
+      description: 'Generates the favicon in all possible formats, this should be run once only when ./static/logo.png changes',
+    },
     clean: {
       default: {
         script: npsUtils.concurrent.nps('clean.public','clean.resources'),
@@ -20,23 +24,38 @@ module.exports = {
     },
     build: {
       default: {
-        script: npsUtils.series.nps('clean','build.build'),
+        script: npsUtils.series.nps('clean','build.build','build.favicon','build.minify'),
         description: 'Builds the documentation site',
       },
       build: {
-        script: 'hugo --enableGitInfo --forceSyncStatic --gc --minify --noChmod',
+        script: 'hugo --enableGitInfo --forceSyncStatic --gc --noChmod',
         description: 'Builds the hugo site',
+        hiddenFromHelp: true,
+      },
+      favicon: {
+        script: 'find ./public -type f -iname "*.html" -exec real-favicon inject faviconData.json public {} \\;',
+        description: 'Injects the favicon into the html files',
+        hiddenFromHelp: true,
+      },
+      minify: {
+        script: 'find ./public -type f -iname "*.html" -exec htmlminify -o {} {} \\;',
+        description: 'Minify the resulting html',
         hiddenFromHelp: true,
       },
     },
     dev_build: {
       default: {
-        script: npsUtils.series.nps('clean', 'dev_build.build'),
+        script: npsUtils.series.nps('clean', 'dev_build.build','dev_build.favicon'),
         description: 'Builds the documentation site',
       },
       build: {
-        script: 'hugo --enableGitInfo --forceSyncStatic --gc --minify --i18n-warnings --renderToMemory --templateMetrics --templateMetricsHints',
+        script: 'hugo --enableGitInfo --forceSyncStatic --gc --i18n-warnings --renderToMemory --templateMetrics --templateMetricsHints',
         description: 'Builds the hugo site',
+        hiddenFromHelp: true,
+      },
+      favicon: {
+        script: 'find ./public -type f -iname "*.html" -exec real-favicon inject faviconData.json public {} \\;',
+        description: 'Injects the favicon into the html files',
         hiddenFromHelp: true,
       },
     },

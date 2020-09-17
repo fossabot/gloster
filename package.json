@@ -7,15 +7,18 @@
   "devDependencies": {
     "@types/http-server": "^0",
     "autoprefixer": "^9.8.6",
+    "cli-real-favicon": "^0.0.8",
+    "http-server": "^0.12.3",
     "nps": "^5.10.0",
     "nps-utils": "^1.7.0",
     "postcss-cli": "^7.1.2",
-    "http-server": "^0.12.3"
+    "html-minify": "^0.3.2"
   },
   "scripts": {
     "clean": "nps clean",
     "build": "nps build",
     "dev_build": "nps dev_build",
-    "serve": "nps serve"
+    "serve": "nps serve",
+    "favicon": "nps favicon"
   }
 }
