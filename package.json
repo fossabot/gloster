@@ -1,0 +1,21 @@
+{
+  "name": "gloster-docs",
+  "version": "0.0.1",
+  "description": "Documentation for gloster",
+  "author": "carddamom",
+  "license": "CC-BY-SA-4.0",
+  "devDependencies": {
+    "@types/http-server": "^0",
+    "autoprefixer": "^9.8.6",
+    "nps": "^5.10.0",
+    "nps-utils": "^1.7.0",
+    "postcss-cli": "^7.1.2",
+    "http-server": "^0.12.3"
+  },
+  "scripts": {
+    "clean": "nps clean",
+    "build": "nps build",
+    "dev_build": "nps dev_build",
+    "serve": "nps serve"
+  }
+}

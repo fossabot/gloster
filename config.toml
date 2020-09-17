@@ -1,3 +1,67 @@
-baseURL = "http://example.org/"
+baseURL = "http://127.0.0.1:28080/"
 languageCode = "en-us"
 title = "My New Hugo Site"
+canonifyurls = true
+hasCJKLanguage = true
+
+enableRobotsTXT = true
+
+theme = ["docsy"]
+
+enableGitInfo = true
+
+contentDir = "content/en"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableMissingTranslationPlaceholders = false
+
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+
+[permalinks]
+blog = "/:section/:year/:month/:day/:slug/"
+
+[languages]
+[languages.en]
+title = "Gloster docs"
+description = "The gloster project documentation site"
+languageName = "English"
+weight = 1
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+copyright = "carddamom"
+
+github_project_repo = "https://github.com/chordflower/gloster"
+
+algolia_docsearch = false
+offlineSearch = true
+sharingicons = false
+
+[params.ui]
+sidebar_menu_compact = true
+breadcrumb_disable = false
+sidebar_search_disable = false
+navbar_logo = true
+footer_about_disable = false
+
+[params.ui.feedback]
+enable = false
+
+[params.ui.readingtime]
+enable = true
+
+[params.links]
+[[params.links.user]]
+  name = "Github"
+  url = "https://github.com/chordflower/gloster"
+  icon = "fab fa-github"
+  desc = "Development takes place here!"
+[[params.links.developer]]
+  name = "Github Issues"
+  url = "https://github.com/chordflower/gloster/issues"
+  icon = "fas fa-bug"
+  desc = "Where to report bugs or feature requests"
