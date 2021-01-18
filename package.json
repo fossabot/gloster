@@ -43,7 +43,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@yarnpkg/pnpify": "^2.2.1",
+    "@yarnpkg/pnpify": "^2.4.0",
     "multi-req": "^2.0.1"
   }
 }
