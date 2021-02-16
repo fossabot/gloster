@@ -31,7 +31,7 @@
   },
   "engineStrict": true,
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.1.1",
     "eslint": "^7.9.0",
     "eslint-plugin-jsdoc": "^30.5.1",
