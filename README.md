@@ -1,6 +1,7 @@
 # Gloster
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io) [![nps friendly](https://img.shields.io/badge/nps-friendly-blue.svg?style=flat-square)](https://github.com/sezna/nps) [![typescript](https://badgen.net/badge/icon/typescript?label=built%20with&color=yellow)](https://www.typescriptlang.org/) [![gitlab](https://badgen.net/badge/icon/gitlab?label=hosted%20on&color=orange)](https://gitlab.com/carddamom/gloster) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fchordflower%2Fgloster.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fchordflower%2Fgloster?ref=badge_shield)
 
 This is a project to manage other projects, in a very lightweight manner, meaning that this does not replace a repository manager, an issue tracker, a wiki or any other more heavyweight tool.
 
@@ -94,3 +95,6 @@ This will:
 The project itself is licensed under a AGPL3.0 or later license, as specified in LICENSE.md
 
 Icon made by Freepik from www.flaticon.com
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fchordflower%2Fgloster.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fchordflower%2Fgloster?ref=badge_large)
